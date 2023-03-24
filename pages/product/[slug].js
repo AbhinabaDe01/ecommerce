@@ -1,11 +1,17 @@
 //this component is dynamic according to the respective slugs that we look for, that is why it is in square brackets
 import React , {useState} from 'react'
 
+//importing the client for sanity databse and urlfor for image display purpose
 import {client, urlFor} from '../../lib/client'
 
+//importing icons
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
+//importing the product components to show in the similar products section
 import { Product } from '../../components';
+
+//importing the context
+import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ products, product }) => {
 
@@ -13,6 +19,10 @@ const ProductDetails = ({ products, product }) => {
 
     const [index, setIndex] = useState(0)
 
+    //destructuring from the context to add the increment/decrement of quantity and
+    //add items to the cart or directly buy and go to the payment checkout page
+    const {qty, incQty, decQty, onAdd} = useStateContext()
+   
   return (
     <div>
         <div className='product-detail-container'>
@@ -58,14 +68,14 @@ const ProductDetails = ({ products, product }) => {
                 <div className='quantity'>
                     <h3>Quantity: </h3>
                     <p className='quantity-desc'>
-                        <span className='minus' onClick=""><AiOutlineMinus /></span>
-                        <span className='num' onClick="">0</span>
-                        <span className='plus' onClick=""><AiOutlinePlus /></span>
+                        <span className='minus' onClick={decQty}><AiOutlineMinus /></span>
+                        <span className='num' onClick="">{qty}</span>
+                        <span className='plus' onClick={incQty}><AiOutlinePlus /></span>
                     </p>
                 </div>
 
                 <div className='buttons'>
-                    <button type="button" className='add-to-cart' onClick="">Add to Cart</button>
+                    <button type="button" className='add-to-cart' onClick={() => onAdd(product, qty)}>Add to Cart</button>
                     <button type="button" className='buy-now' onClick="">Buy Now</button>
                 </div>
             </div>
@@ -85,6 +95,8 @@ const ProductDetails = ({ products, product }) => {
   )
 }
 
+//it generates all the paths that are extracted from the product array as a separate slug
+//that we can use in the url
 export const getStaticPaths = async () => {
     const query = `*[_type == "product"]{
 
@@ -98,6 +110,8 @@ export const getStaticPaths = async () => {
 
     const products = await client.fetch(query)
 
+    //we are then mapping through all the products and generating slug, which is obtained by
+    //slug.current value
     const paths = products.map((product) => ({
         params: {
             slug: product.slug.current
