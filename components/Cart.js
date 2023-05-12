@@ -16,9 +16,34 @@ import { urlFor } from '../lib/client'
 //importing Link from next library to direct to specefic urls
 import Link from 'next/link'
 
-const Cart = ( ) => {
+//importing stripe handler
+import getStripe from '../lib/getStripe'
+
+const Cart = () => {
   //using useref
   const cartRef = useRef()
+
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
+
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItems),
+    })
+
+    if(response.statusCode === 500) {
+      return;
+    }
+
+    const data = await response.json()   
+
+    // toast.loading('Redirecting to checkout...')
+
+    stripe.redirectToCheckout({ sessionId: data.id })
+  }
 
   //destructuring from the context
   const {totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove} = useStateContext()
@@ -100,7 +125,7 @@ const Cart = ( ) => {
               <button
               type='button'
               className='btn'
-              onClick=""
+              onClick={handleCheckout}
               >
                 Pay Now
               </button>
