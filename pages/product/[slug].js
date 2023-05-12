@@ -8,7 +8,8 @@ import {client, urlFor} from '../../lib/client'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 //importing the product components to show in the similar products section
-import { Product } from '../../components';
+// import { Product } from '../../components';
+import Product  from '../../components/Product';
 
 //importing the context
 import { useStateContext } from '../../context/StateContext';
