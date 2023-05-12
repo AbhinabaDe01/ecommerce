@@ -5,13 +5,17 @@ import Layout from '../components/Layout'
 
 import { StateContext } from '../context/StateContext'
 
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+
 function MyApp({ Component, pageProps }) {
   return (
     <StateContext>
-      <Layout>
-        <Toaster />
-        <Component {...pageProps} />
-      </Layout>
+      <UserProvider>
+        <Layout>
+          <Toaster />
+          <Component {...pageProps} />
+        </Layout>
+      </UserProvider>
     </StateContext>
   )
 }
