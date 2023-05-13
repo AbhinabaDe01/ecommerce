@@ -618,6 +618,15 @@ margin-top: 160px;
   margin-top: 10px;
 }
 
+
+.auth-btn {
+  padding: 2px 10px;
+  background-color: orange;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+
 @media screen and (max-width:800px) {
   .hero-banner-container{
     height: 560px;
@@ -762,10 +771,3 @@ margin-top: 160px;
 }
 }
 
-
-.auth-btn {
-  padding: 2px 10px;
-  background-color: orange;
-  border-radius: 10px;
-  font-weight: bold;
-}

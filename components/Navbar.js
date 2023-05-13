@@ -13,6 +13,8 @@ const Navbar = () => {
 
   const { user, error, isLoading } = useUser();
 
+  console.log(user);
+
   return (
     <div className='navbar-container'>
       <p>
