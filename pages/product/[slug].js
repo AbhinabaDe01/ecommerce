@@ -14,6 +14,8 @@ import Product  from '../../components/Product';
 //importing the context
 import { useStateContext } from '../../context/StateContext';
 
+
+
 const ProductDetails = ({ products, product }) => {
 
     const {image, name, details, price} = product;
@@ -22,7 +24,13 @@ const ProductDetails = ({ products, product }) => {
 
     //destructuring from the context to add the increment/decrement of quantity and
     //add items to the cart or directly buy and go to the payment checkout page
-    const {qty, incQty, decQty, onAdd} = useStateContext()
+    const {qty, incQty, decQty, onAdd, setShowCart} = useStateContext()
+
+    const handleBuyNow = () => {
+        onAdd(product, qty);
+
+        setShowCart(true);
+    }
    
   return (
     <div>
@@ -70,14 +78,14 @@ const ProductDetails = ({ products, product }) => {
                     <h3>Quantity: </h3>
                     <p className='quantity-desc'>
                         <span className='minus' onClick={decQty}><AiOutlineMinus /></span>
-                        <span className='num' onClick="">{qty}</span>
+                        <span className='num' >{qty}</span>
                         <span className='plus' onClick={incQty}><AiOutlinePlus /></span>
                     </p>
                 </div>
 
                 <div className='buttons'>
                     <button type="button" className='add-to-cart' onClick={() => onAdd(product, qty)}>Add to Cart</button>
-                    <button type="button" className='buy-now' onClick="">Buy Now</button>
+                    <button type="button" className='buy-now' onClick={handleBuyNow}>Buy Now</button>
                 </div>
             </div>
         </div>

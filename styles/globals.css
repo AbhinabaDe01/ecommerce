@@ -761,3 +761,11 @@ margin-top: 160px;
   margin: auto;
 }
 }
+
+
+.auth-btn {
+  padding: 2px 10px;
+  background-color: orange;
+  border-radius: 10px;
+  font-weight: bold;
+}

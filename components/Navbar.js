@@ -28,9 +28,9 @@ const Navbar = () => {
       {
         user 
         ? 
-        <p><Link href="/api/auth/logout">Logout</Link></p>
+        <p className='auth-btn'><Link href="/api/auth/logout">Logout</Link></p>
         :
-        <p><Link href="/api/auth/login">Login</Link></p>
+        <p className='auth-btn'><Link href="/api/auth/login">Login</Link></p>
       }
 
       {showCart && <Cart />}
