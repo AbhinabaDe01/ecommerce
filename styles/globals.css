@@ -98,7 +98,7 @@ width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 25px;
   margin-top: 20px;
   width: 100%;
 }
@@ -126,6 +126,11 @@ width: 100%;
   font-weight: 800;
   margin-top: 6px;
   color: black;
+}
+
+.price > span{
+  color: black;
+  font-size: 1em;
 }
 
 .hero-banner-container{
@@ -171,6 +176,8 @@ width: 100%;
   width: 450px;
   height: 450px;
 }
+
+
 
 
 .desc{
@@ -502,13 +509,14 @@ padding: 30px 65px;
   width: 200px;
    transform: scale(1, 1);
   transition: transform 0.5s ease;
+  border-radius: 20px;
 }
 .buttons .add-to-cart:hover{
   transform:scale(1.1,1.1)
 }
 .buttons .buy-now{
   width: 200px;
-
+  border-radius: 20px;
   padding: 10px 20px;
   background-color: #f02d34;
   color: white;
@@ -523,16 +531,20 @@ padding: 30px 65px;
 .buttons .buy-now:hover{
   transform:scale(1.1,1.1)
 }
-.quantity-desc{
+/* .quantity-desc{
   border: 1px solid gray;
-padding: 6px;
-}
+  padding: 6px;
+} */
 .quantity-desc span{
   font-size: 16px;
   padding: 6px 12px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
-.quantity-desc .minus{
+/* .quantity-desc .minus{
   border-right: 1px solid gray;
   color: #f02d34;
 }
@@ -542,7 +554,20 @@ padding: 6px;
 }
 .quantity-desc .plus{
   color: rgb(49, 168, 49);
+} */
 
+.quantity-desc {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-desc .minus, .plus{
+  background-color: red;
+  color: white;
+  border-radius: 20px;
 }
 
 .maylike-products-wrapper{
@@ -624,6 +649,24 @@ margin-top: 160px;
   background-color: orange;
   border-radius: 10px;
   font-weight: bold;
+}
+
+.filter-list{
+  display: flex;
+  padding: 20px 30px;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 15px;
+}
+
+.filter-list p{
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: rgb(52, 52, 52);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: rgb(255, 227, 227);
 }
 
 
@@ -711,6 +754,7 @@ margin-top: 160px;
   }
   .buttons .add-to-cart{
     width: 150px;
+    border-radius: 10px;
   }
   .buttons .buy-now{
     width: 150px;
@@ -755,7 +799,7 @@ margin-top: 160px;
   min-height: 69vh;
 }
 .success, .cancel {
-   width: 370px;
+  width: 370px;
   margin-top: 100px;
   padding: 20px;
 }

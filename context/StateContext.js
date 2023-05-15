@@ -4,11 +4,34 @@ import {toast} from 'react-hot-toast' //for popup notification
 const Context = createContext()
 
 export const StateContext = ({children}) => {
+
+    // const getLocalItems = () => {
+
+    //     if (typeof window !== 'undefined'){
+    //         const cart = localStorage.getItem('cart');
+    //         console.log(cart);
+      
+    //         if(cart){
+    //             return JSON.parse(localStorage.getItem('cart'))
+    //         } else {
+    //             return [];
+    //         }
+    //     }
+
+    // }
+
+
     const [showCart, setShowCart] = useState(false)
     const [cartItems, setCartItems] = useState([]) 
     const [totalPrice, setTotalPrice] = useState(0)
     const [totalQuantities, setTotalQuantities] = useState(0)
     const [qty, setQty] = useState(1)
+
+    // useEffect(() => {
+    //     localStorage.setItem('cart', JSON.stringify(cartItems));
+    // }, [cartItems])
+
+    // console.log(cartItems)
 
     // foundProdct for current selected product
     let foundProduct;

@@ -6,8 +6,6 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
 
     console.log(req.body)
-    console.log(req.body[0].image)
-
 
     try {
       // Create Checkout Sessions from body params.
@@ -16,6 +14,7 @@ export default async function handler(req, res) {
         mode: 'payment',
         payment_method_types: ['card'],
         billing_address_collection: 'auto',
+        shipping_address_collection: { allowed_countries: ['IN'] },
         shipping_options: [
             { shipping_rate: 'shr_1N0IcvSGjTFJOOQeoktzub6W' },
             { shipping_rate: 'shr_1N0If0SGjTFJOOQe6mAGNtkS' } 

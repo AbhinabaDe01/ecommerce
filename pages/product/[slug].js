@@ -18,9 +18,15 @@ import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ products, product }) => {
 
-    const {image, name, details, price} = product;
+    const {image, name, details, price, category} = product;
 
     const [index, setIndex] = useState(0)
+
+    const [similar, setSimilar] = useState([])
+
+    const similarProducts = products.filter(item => item.category === product.category)
+
+    
 
     //destructuring from the context to add the increment/decrement of quantity and
     //add items to the cart or directly buy and go to the payment checkout page
@@ -73,7 +79,7 @@ const ProductDetails = ({ products, product }) => {
                     Details: 
                 </h4>
                 <p>{details}</p>
-                <p className='price'>${price}</p>
+                <p className='price'><span>Price: </span>₹{price}</p>
                 <div className='quantity'>
                     <h3>Quantity: </h3>
                     <p className='quantity-desc'>
@@ -90,7 +96,7 @@ const ProductDetails = ({ products, product }) => {
             </div>
         </div>
 
-        <div className='maylike-products-wrapper'>
+        {/* <div className='maylike-products-wrapper'>
                 <h2>You may also like</h2>
                 <div className='marquee'>
                     <div className='maylike-products-container track'>
@@ -99,7 +105,19 @@ const ProductDetails = ({ products, product }) => {
                         ))}
                     </div>
                 </div>
+        </div> */}
+
+        <div className='maylike-products-wrapper'>
+                <h2>You may also like</h2>
+                <div className='marquee'>
+                    <div className='maylike-products-container track'>
+                        {similarProducts.map((item) => (
+                            <Product key={item._id} product={item}/>
+                        ))}
+                    </div>
+                </div>
         </div>
+
     </div>
   )
 }
