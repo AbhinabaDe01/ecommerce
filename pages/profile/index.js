@@ -6,7 +6,7 @@ const Profile = () => {
 
   const { user, error, isLoading } = useUser();
 
-  if(user.given_name){
+  if(user && user.given_name){
     return(
       <div className='profile'>
         <img src={user.picture} height={150} width={150}/>
