@@ -681,7 +681,17 @@ margin-top: 160px;
   gap: 10px;
 }
 
+.profile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
+}
 
+.profile img{
+  border-radius: 50%;
+}
 
 @media screen and (max-width:800px) {
   .hero-banner-container{
