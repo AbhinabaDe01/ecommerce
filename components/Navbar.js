@@ -15,6 +15,16 @@ const Navbar = () => {
 
   console.log(user);
 
+  const handleShowCart = () => {
+    {
+      user
+      ?
+      setShowCart(true)
+      :
+      toast.error(`Please Login to view your cart`)
+    }
+  }
+
   return (
     <div className='navbar-container'>
       <p>
@@ -22,7 +32,7 @@ const Navbar = () => {
       </p>
 
       
-      <button className='cart-icon' onClick={() => setShowCart(true)}>    
+      <button className='cart-icon' onClick={handleShowCart()}>    
         <AiOutlineShopping />
         <span className='cart-item-qty'>{totalQuantities}</span>
       </button>
@@ -30,9 +40,13 @@ const Navbar = () => {
       {
         user 
         ? 
-        <p className='auth-btn'><Link href="/api/auth/logout">Logout</Link></p>
+        <div className='auth-list'>
+          <p><Link href="/profile">Profile</Link></p>
+          <p className='auth-btn'><Link href="/api/auth/logout">Logout</Link></p>
+        </div>
         :
         <p className='auth-btn'><Link href="/api/auth/login">Login</Link></p>
+        
       }
 
       {showCart && <Cart />}

@@ -31,7 +31,7 @@ export const StateContext = ({children}) => {
     //     localStorage.setItem('cart', JSON.stringify(cartItems));
     // }, [cartItems])
 
-    // console.log(cartItems)
+    console.log(cartItems)
 
     // foundProdct for current selected product
     let foundProduct;
@@ -81,7 +81,7 @@ export const StateContext = ({children}) => {
             //update the cart items
             setCartItems(updatedCartItems)
             
-
+            
 
         } else { //if the item does not exist in the cart
 
@@ -94,6 +94,12 @@ export const StateContext = ({children}) => {
         }
 
         toast.success(`${qty} ${product.name} has been added to the cart.`)
+
+        setTimeout(() => {
+            setQty(1)
+        }, 2000)
+        
+
     }
 
 
