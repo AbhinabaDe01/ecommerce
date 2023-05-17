@@ -44,8 +44,10 @@ const ProductDetails = ({ products, product }) => {
             onAdd(product, qty);
 
             setShowCart(true);
+        } else {
+            toast.error('Login first to view cart or to buy')
         }
-        toast.error('Login first to view cart or to buy')
+        
     }
    
   return (
