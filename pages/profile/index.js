@@ -17,6 +17,14 @@ const Profile = () => {
         <p>Updated at: {user.updated_at}</p>
       </div>
     )
+  } else if(user && !user.given_name) {
+    <div className='profile'>
+      <img src={user.picture} height={150} width={150}/>
+      <h3>Username: {user.nickname}</h3>
+      <h3>Email: {user.email}</h3>
+      <p>Session ID: {user.sid}</p>
+      <p>Updated at: {user.updated_at}</p>
+    </div>
   } else {
     return (
       <p>Other info</p>
