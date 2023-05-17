@@ -15,6 +15,11 @@ import Product  from '../../components/Product';
 import { useStateContext } from '../../context/StateContext';
 
 
+import { useUser } from '@auth0/nextjs-auth0/client';
+
+import {toast} from 'react-hot-toast' //for popup notification
+
+
 
 const ProductDetails = ({ products, product }) => {
 
@@ -26,6 +31,8 @@ const ProductDetails = ({ products, product }) => {
 
     const similarProducts = products.filter(item => item.category === product.category)
 
+    const { user, error, isLoading } = useUser();
+
     
 
     //destructuring from the context to add the increment/decrement of quantity and
@@ -33,9 +40,12 @@ const ProductDetails = ({ products, product }) => {
     const {qty, incQty, decQty, onAdd, setShowCart} = useStateContext()
 
     const handleBuyNow = () => {
-        onAdd(product, qty);
+        if(user) {
+            onAdd(product, qty);
 
-        setShowCart(true);
+            setShowCart(true);
+        }
+        toast.error('Login first to view cart or to buy')
     }
    
   return (
