@@ -42,8 +42,16 @@ const ProductDetails = ({ products, product }) => {
     const handleBuyNow = () => {
         if(user) {
             onAdd(product, qty);
-
             setShowCart(true);
+        } else {
+            toast.error('Login first to view cart or to buy')
+        }
+        
+    }
+
+    const handleAddToCart = () => {
+        if(user) {
+            onAdd(product, qty);
         } else {
             toast.error('Login first to view cart or to buy')
         }
@@ -102,7 +110,7 @@ const ProductDetails = ({ products, product }) => {
                 </div>
 
                 <div className='buttons'>
-                    <button type="button" className='add-to-cart' onClick={() => onAdd(product, qty)}>Add to Cart</button>
+                    <button type="button" className='add-to-cart' onClick={handleAddToCart}>Add to Cart</button>
                     <button type="button" className='buy-now' onClick={handleBuyNow}>Buy Now</button>
                 </div>
             </div>

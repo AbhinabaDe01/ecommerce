@@ -7,18 +7,34 @@ export const StateContext = ({children}) => {
 
     // const getLocalItems = () => {
 
-    //     if (typeof window !== 'undefined'){
-    //         const cart = localStorage.getItem('cart');
-    //         console.log(cart);
+    //     if (typeof window !== 'undefined' && window.localStorage){
+    //         let cartProducts = localStorage.getItem('cart');
+            
+    //         console.log(cartProducts);
       
-    //         if(cart){
-    //             return JSON.parse(localStorage.getItem('cart'))
+    //         if(cartProducts !== null){
+    //             return JSON.parse(cartProducts)
     //         } else {
-    //             return [];
+    //             return []
     //         }
     //     }
 
     // }
+
+    // const getTotalPrice = () => {
+
+    //     if (typeof window !== 'undefined' && window.localStorage){
+    //         let total = localStorage.getItem('totalAmount')
+    //         if(total !== 'undefined'){
+    //             return total
+    //         } else {
+    //             return 0
+    //         }
+    //     }
+
+    // }
+
+
 
 
     const [showCart, setShowCart] = useState(false)
@@ -28,7 +44,10 @@ export const StateContext = ({children}) => {
     const [qty, setQty] = useState(1)
 
     // useEffect(() => {
-    //     localStorage.setItem('cart', JSON.stringify(cartItems));
+    //     if (typeof window !== 'undefined' && window.localStorage){
+    //         localStorage.setItem('cart', JSON.stringify(cartItems));
+    //         localStorage.setItem('totalAmount', totalPrice)
+    //     }    
     // }, [cartItems])
 
     console.log(cartItems)
@@ -153,7 +172,7 @@ export const StateContext = ({children}) => {
             //decrease the quantity
             if(foundProduct.quantity > 1){
                 setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 }])
-                setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
+                setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
                 setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1)
             }
 

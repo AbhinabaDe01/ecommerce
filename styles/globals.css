@@ -681,15 +681,41 @@ margin-top: 160px;
   gap: 10px;
 }
 
-.profile{
+.profile {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-direction: column;
+  margin: 10px auto;
+  max-width: 1200px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.profile img{
+.profile div{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 10px;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+form{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+form div{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.profile img, .profile-2 img{
   border-radius: 50%;
 }
 
