@@ -24,7 +24,7 @@ const Profile = () => {
     )
   } else if(user && !user.given_name) {
     return(
-      <div className='profile profile-2'>
+      <div className='Profile'>
         <div>
           <img src={user.picture} height={150} width={150}/>
           <h3>Username: {user.nickname}</h3>

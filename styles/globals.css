@@ -707,12 +707,14 @@ form{
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  height: 100%;
 }
 
 form div{
   display: flex;
   align-items: center;
   width: 100%;
+  flex-direction: row;
 }
 
 .profile img, .profile-2 img{
