@@ -10,12 +10,12 @@ const Form = () => {
 
             <div>
             <label for="ph">Phone Number: </label>
-            <input type="number" name="ph" placeholder="Full Name" />
+            <input type="number" name="ph" placeholder="Phone number" />
             </div>
 
             <div>
             <label for="address">Address: </label>
-            <input type="text" name="address" placeholder="Full Name" />
+            <input type="text" name="address" placeholder="Address" />
             </div>
         </form>
   )

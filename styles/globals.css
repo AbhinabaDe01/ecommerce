@@ -718,9 +718,9 @@ form div{
 }
 
 form div input {
-  display: block;
+  width: 100%;
   padding: 2px;
-  height: 15px;
+  height: 25px;
 }
 
 .profile img, .profile-2 img{
