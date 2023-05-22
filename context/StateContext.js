@@ -34,7 +34,11 @@ export const StateContext = ({children}) => {
 
     // }
 
+    const [name, setName] = useState('')
+    const [ph, setPh] = useState(null)
+    const [address, setAddress] = useState('')
 
+    console.log(name, ph, address)
 
 
     const [showCart, setShowCart] = useState(false)
@@ -194,7 +198,10 @@ export const StateContext = ({children}) => {
             onAdd,
             setShowCart,
             toggleCartItemQuantity,
-            onRemove
+            onRemove,
+            setName,
+            setPh,
+            setAddress
         }}>
             {children}
         </Context.Provider>
