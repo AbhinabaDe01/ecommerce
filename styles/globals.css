@@ -717,6 +717,12 @@ form div{
   flex-direction: row;
 }
 
+form div input {
+  display: block;
+  padding: 2px;
+  height: 15px;
+}
+
 .profile img, .profile-2 img{
   border-radius: 50%;
 }
