@@ -727,6 +727,10 @@ form div input {
   border-radius: 50%;
 }
 
+.nav-name{
+  cursor: pointer;
+}
+
 @media screen and (max-width:800px) {
   .hero-banner-container{
     height: 560px;
