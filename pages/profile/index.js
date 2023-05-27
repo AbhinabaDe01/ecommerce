@@ -18,8 +18,6 @@ const Profile = () => {
           <p>Session ID: {user.sid}</p>
           <p>Updated at: {user.updated_at}</p>
         </div>
-        
-        <Form />
       </div>
     )
   } else if(user && !user.given_name) {
@@ -32,8 +30,6 @@ const Profile = () => {
           <p>Session ID: {user.sid}</p>
           <p>Updated at: {user.updated_at}</p>
         </div>
-        
-        <Form />
       </div>
     )
     
